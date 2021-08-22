@@ -1,111 +1,44 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-int n, m;
-int arr[8][8];  // 초기 맵 배열
-int temp[8][8]; // 벽을 설치한 뒤의 맵 배열
+vector<int> a[101]; // 인접 리스트
+bool check[101];
+int cnt = 0;
 
-// 4가지 이동 방향에 대한 배열
-int dx[] = {-1, 0, 1, 0};
-int dy[] = {0, 1, 0, -1};
-
-int result;
-
-// 깊이 우선 탐색(DFS)을 이용해 각 바이러스가 사방으로 퍼지도록 하기
-void virus(int x, int y)
+void dfs(int x)
 {
-    for (int i = 0; i < 4; i++)
+    // 현재 노드를 방문 처리
+    check[x] = true;
+
+    // 현재 노드와 연결된 다른 노드를 재귀적으로 방문
+    for (int i = 0; i < a[x].size(); i++)
     {
-        int nx = x + dx[i];
-        int ny = y + dy[i];
-        // 상, 하, 좌, 우 중에서 바이러스가 퍼질 수 있는 경우
-        if (nx >= 0 && nx < n && ny >= 0 && ny < m)
+        int y = a[x][i];
+        if (!check[y])
         {
-            if (temp[nx][ny] == 0)
-            {
-                // 해당 위치에 바이러스 배치하고, 다시 재귀적으로 수행
-                temp[nx][ny] = 2;
-                virus(nx, ny);
-            }
+            dfs(y);
+            cnt++;
         }
     }
 }
 
-// 현재 맵에서 안전 영역의 크기 계산하는 메서드
-int getScore()
+int main()
 {
-    int score = 0;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (temp[i][j] == 0)
-            {
-                score += 1;
-            }
-        }
-    }
-    return score;
-}
-
-// 깊이 우선 탐색(DFS)을 이용해 울타리를 설치하면서, 매 번 안전 영역의 크기 계산
-void dfs(int count)
-{
-    // 울타리가 3개 설치된 경우
-    if (count == 3)
-    {
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                temp[i][j] = arr[i][j];
-            }
-        }
-
-        // 각 바이러스의 위치에서 전파 진행
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                if (temp[i][j] == 2)
-                {
-                    virus(i, j);
-                }
-            }
-        }
-
-        // 안전 영역의 최대값 계산
-        result = max(result, getScore());
-        return;
-    }
-    // 빈 공간에 울타리를 설치
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (arr[i][j] == 0)
-            {
-                arr[i][j] = 1;
-                count += 1;
-                dfs(count);
-                arr[i][j] = 0;
-                count -= 1;
-            }
-        }
-    }
-}
-
-int main(void)
-{
+    int n, m; // n: 노드 개수, m: 엣지 개수
     cin >> n >> m;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> arr[i][j];
-        }
-    }
-
-    dfs(0);
-    cout << result << '\n';
+        // 노드 u에 연결된 노드 정보 저장
+        int u, v;
+        cin >> u >> v;
+        a[u].push_back(v);
+        a[v].push_back(u);
+    } // edge 연결해줬음
+    dfs(1);
+    cout << cnt << '\n';
 }
+
+// 연결된 애들끼리 감염되는데 1번을 통해서 바이러스에 걸리니까 DFS나 BFS를 반복문을 따로 할 필요 없이
+// (전체 연결된 그래프를 찾는게아니라 1번이랑 연결된 그래프만 찾으면 되니까) 1번에서 호출하면 된다.
