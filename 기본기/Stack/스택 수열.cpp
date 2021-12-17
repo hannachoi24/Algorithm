@@ -37,7 +37,7 @@ int main()
         cout << "NO"; // 수열이 만들어졌다면, 벡터가 비어있어야 하므로
     else
     {
-        for (int i = 0; i < ans.size(); i++)
+        for (int i = 0; i < ans.size() - 1; i++)
         {
             cout << ans[i] << '\n';
         }
