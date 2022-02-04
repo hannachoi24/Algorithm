@@ -15,14 +15,16 @@ int main()
             if (i % div == 0)
                 cnt++;
         }
+
         if (cnt == 2)
-        {                  //i가 소수일 때
-            if (min == -1) //저장된 소수의 최솟값이 없을 때
+        { // i가 소수일 때
+            if (min == -1)
                 min = i;
             sum += i;
         }
         cnt = 0;
     }
+
     if (min == -1)
         cout << -1 << '\n';
     else
