@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stack>
 #include <algorithm>
-
 using namespace std;
 
 int main()
@@ -25,6 +24,7 @@ int main()
             s.push(num);
         }
     }
+
     for (int i = 0; !s.empty(); i++)
     {
         sum += s.top();
