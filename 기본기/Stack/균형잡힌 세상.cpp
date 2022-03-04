@@ -1,18 +1,17 @@
 #include <iostream>
 #include <stack>
 #include <string>
-
 using namespace std;
 
 string str;
 
 int main()
 {
-
     while (1)
     {
         getline(cin, str); // 공백까지 입력받아야 하므로
         stack<char> s;
+
         if (str[0] == '.')
             break;
 
