@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include <stack>
-
 using namespace std;
 
 bool vps(string ps)
@@ -12,9 +10,13 @@ bool vps(string ps)
     for (int i = 0; i < ps.size(); i++)
     {
         if (ps[i] == '(')
+        {
             s.push(ps[i]);
+        }
         else if (!s.empty() && ps[i] == ')')
+        {
             s.pop();
+        }
         else if (s.empty() && ps[i] == ')')
         {
             sw = false;
@@ -30,15 +32,22 @@ bool vps(string ps)
 
 int main()
 {
-    int num;
     string ps;
-    for (int i = 0; i < num; i++)
+    int T;
+    cin >> T;
+
+    for (int i = 0; i < T; i++)
     {
         cin >> ps;
+
         if (vps(ps))
+        {
             cout << "YES" << endl;
+        }
         else
+        {
             cout << "NO" << endl;
+        }
     }
 }
 
