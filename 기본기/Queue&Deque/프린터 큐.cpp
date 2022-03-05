@@ -1,18 +1,17 @@
 #include <iostream>
 #include <queue>
-
 using namespace std;
 
 int main()
 {
     int count = 0;
-    int test_case;
-    cin >> test_case;
+    int T;
+    cin >> T;
     // 문서의 개수, 궁금한 문서 위치, 중요도
     int n, m, ipt;
 
     // 문서의 개수와 궁금한 문서 위치 정보 입력 받기, 필요한 큐 생성
-    for (int i = 0; i < test_case; ++i)
+    for (int i = 0; i < T; ++i)
     {
         count = 0;
         cin >> n >> m;
