@@ -4,19 +4,19 @@
 using namespace std;
 
 vector<int> a[101]; // 인접 리스트
-bool check[101];
+bool visited[101];
 int cnt = 0;
 
 void dfs(int x)
 {
     // 현재 노드를 방문 처리
-    check[x] = true;
+    visited[x] = true;
 
     // 현재 노드와 연결된 다른 노드를 재귀적으로 방문
     for (int i = 0; i < a[x].size(); i++)
     {
         int y = a[x][i];
-        if (!check[y])
+        if (!visited[y])
         {
             dfs(y);
             cnt++;
