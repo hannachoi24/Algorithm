@@ -14,9 +14,9 @@ void dfs(int v)
     visit[v] = 1; //방문한 노드를 visit 0에서 1로 변경
     for (int i = 1; i <= N; i++)
     {
-        if (visit[i] == 1 || mat[v][i] == 0)
+        if (visit[i] == 1 || mat[v][i] == 0) //방문했으면 넘어가고
             continue;
-        dfs(i); //dfs에서 재귀를 사용
+        dfs(i); //dfs에서 재귀를 사용(방문 안한 노드 재귀적으로 처리)
     }
 }
 
@@ -32,10 +32,10 @@ void bfs(int v)
         q.pop();
         for (int i = 1; i <= N; i++)
         {
-            if (visit[i] == 0 || mat[v][i] == 0)
+            if (visit[i] == 0 || mat[v][i] == 0) //방문했으면 넘어가고
                 continue;
-            q.push(i);
-            visit[i] = 0;
+            q.push(i);    //방문 안했으면 삽입
+            visit[i] = 0; // 방문 처리
         }
     }
 }
