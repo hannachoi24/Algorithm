@@ -1,13 +1,12 @@
 #include <iostream>
 #include <queue>   // use bfs algorithm
-#include <stdio.h> // use printf, scanf
 #include <cstring> // use memset
 
 #define MAX_SIZE 1000 + 1
 
 using namespace std;
 
-struct tomato
+struct tomato // struct 사용하는 이유 queue pair일 때 first, second를 좀 더 직관적으로 보여지기 위해
 {
     int y, x;
 };
@@ -54,14 +53,14 @@ void bfs(void)
 int main()
 {
     /* 토마토 농장(그래프)의 크기 입력 (가로/세로)*/
-    scanf("%d %d", &m, &n);
+    cin >> n >> m;
 
     /* 그래프 정보 입력*/
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            scanf("%d", &graph[i][j]);
+            cin >> graph[i][j];
             if (graph[i][j] == 1)
             { // 익은토마토(1) -> 큐
                 q.push({i, j});
@@ -80,7 +79,7 @@ int main()
             // 익지않은 토마토(0)가 존재할 경우
             if (graph[i][j] == 0)
             {
-                printf("-1\n");
+                cout << -1;
                 return 0;
             }
             // 토마토는 다 익었는데, 얼마만에 익었는지?
@@ -90,6 +89,6 @@ int main()
             }
         }
     }
-    printf("%d\n", result - 1);
+    cout << result - 1;
     return 0;
 }
