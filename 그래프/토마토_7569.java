@@ -1,8 +1,8 @@
-package greedy;
+package 그래프;
 
 import java.util.*;
 
-public class 토마토 {
+public class 토마토_7569 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
