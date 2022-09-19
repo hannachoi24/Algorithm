@@ -14,15 +14,15 @@ public class 토마토_7569 {
         int N = sc.nextInt(); // 세로
         int H = sc.nextInt(); // 높이
 
-        int[][][] board = new int[H + 1][N + 1][M + 1];
+        int[][][] board = new int[H + 1][M + 1][N + 1];
         int cnt = 0;
         int days = 0;
         Queue<int[]> q = new LinkedList<>();
 
         // 토마토 판 입력
-        for (int i = 1; i <= H; i++)
-            for (int j = 1; j <= N; j++)
-                for (int k = 1; k <= M; k++) {
+        for (int i = 0; i < H; i++)
+            for (int j = 0; j < M; j++)
+                for (int k = 0; k < N; k++) {
                     board[i][j][k] = sc.nextInt();
                     // 토마토가 익었다면 큐에 넣기
                     if (board[i][j][k] == 1)
@@ -35,26 +35,27 @@ public class 토마토_7569 {
         while (cnt > 0 && !q.isEmpty()) {
             for (int s = q.size(); s > 0; s--) {
                 int[] cur = q.poll();
-                int x = cur[0];
-                int y = cur[1];
-                int z = cur[2];
+                int z = cur[0];
+                int x = cur[1];
+                int y = cur[2];
 
                 for (int i = 0; i < 6; i++) {
+                    int nz = z + dz[i];
                     int nx = x + dx[i];
                     int ny = y + dy[i];
-                    int nz = z + dz[i];
 
-                    if (nx < 0 || ny < 0 || nz < 0 || nx >= N || ny >= M || nz >= H || board[nx][ny][nz] != 0)
+                    if (nx < 0 || ny < 0 || nz < 0 || nx >= M || ny >= N || nz >= H || board[nz][nx][ny] != 0)
                         continue;
 
                     cnt--;
-                    board[nx][ny][nz] = 1;
-                    q.add(new int[] { nx, ny, nz });
+                    board[nz][nx][ny] = 1;
+                    q.add(new int[] { nz, nx, ny });
                 }
             }
             days++;
         }
         System.out.println(cnt == 0 ? days : -1);
+        sc.close();
     }
 }
 
