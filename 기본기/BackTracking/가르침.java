@@ -36,11 +36,11 @@ public class 가르침 {
         }
 
         visit = new boolean[26]; // 각 알파벳을 배웠는지 체크
-        visit['a' - 'a'] = true;
-        visit['c' - 'a'] = true;
-        visit['i' - 'a'] = true;
-        visit['n' - 'a'] = true;
-        visit['t' - 'a'] = true;
+        visit['a' - 'a'] = true; // visit[0] = true
+        visit['c' - 'a'] = true; // visit[2] = true
+        visit['i' - 'a'] = true; // visit[8] = true
+        visit['n' - 'a'] = true; // visit[13] = true
+        visit['t' - 'a'] = true; // visit[19] = true
 
         dfs(0, 0);
 
