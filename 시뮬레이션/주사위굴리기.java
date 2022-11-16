@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 //   6
 
 public class 주사위굴리기 {
-    static int N, M, x, y; // N: 지도 세로 크기, M: 지도 가로 크기, x,y: 주사위를 놓은 곳의 좌표, K: 명령어 개수
+    static int N, M, x, y; // N(열): 지도 세로 크기, M(행): 지도 가로 크기, x,y: 주사위를 놓은 곳의 좌표, K: 명령어 개수
     static int[][] map;
     static int[] dx = { 1, -1, 0, 0 }; // 동 서 북 남
     static int[] dy = { 0, 0, -1, 1 };
@@ -23,8 +23,8 @@ public class 주사위굴리기 {
 
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        y = Integer.parseInt(st.nextToken());
-        x = Integer.parseInt(st.nextToken());
+        y = Integer.parseInt(st.nextToken()); // 열
+        x = Integer.parseInt(st.nextToken()); // 행
         int K = Integer.parseInt(st.nextToken());
 
         map = new int[N][M];
