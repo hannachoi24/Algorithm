@@ -44,7 +44,7 @@ public class 경사로 {
 
         // 알아보기 쉽게 height 배열에 옮기기
         for (int i = 0; i < N; i++) {
-            height[i] = (d == 0) ? map[x][y + i] : map[x + i][y];
+            height[i] = (d == 0) ? map[x][y + i] : map[x + i][y]; // 2차원으로 돼 있는 지도에서 길 하나만 체크하면 되기 때문에 1차원 배열에 옮기기
         }
 
         for (int i = 0; i < N - 1; i++) {
@@ -53,12 +53,14 @@ public class 경사로 {
                 continue;
             }
 
+            // 높이 차이가 2 이상이면 경사로 놓을 수 없음
             if (Math.abs(height[i] - height[i + 1]) > 1) {
                 return false;
             }
 
             // 내려가야되는 경우
             if (height[i] - 1 == height[i + 1]) { // ex) 3 2
+                // 다음 인덱스부터 앞으로 길이 L 만큼
                 for (int j = i + 1; j <= i + L; j++) {
                     // j가 범위를 벗어나거나 높이가 다르거나 이미 경사로가 있는 경우
                     if (j >= N || height[i + 1] != height[j] || visit[j] == true) {
@@ -70,6 +72,7 @@ public class 경사로 {
 
             // 올라가야되는 경우
             else if (height[i] + 1 == height[i + 1]) { // ex) 2 3
+                // 현재 인덱스부터 뒤로 길이 L 만큼
                 for (int j = i; j > i - L; j--) {
                     if (j < 0 || height[i] != height[j] || visit[j] == true) {
                         return false;
