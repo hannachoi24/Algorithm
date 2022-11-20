@@ -42,7 +42,7 @@ public class 아기상어 {
 
         while (true) {
             LinkedList<Node> fish = new LinkedList<>(); // 먹을 수 있는 fish 담는 배열
-            int[][] dist = new int[N][N]; // 새로운 위치 갱신하기위한 배열
+            int[][] dist = new int[N][N]; // 아기 상어가 있는 칸에서 물고기가 있는 칸으로 이동할 때, 지나야하는 칸의 개수 저장할 배열
 
             while (!q.isEmpty()) {
                 Node current = q.poll(); // 현재 아기상어 위치
