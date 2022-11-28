@@ -31,6 +31,7 @@ public class 배열돌리기1_v1 {
         for (int i = 0; i < R; i++) {
             // 그룹 갯수 만큼 반복
             for (int j = 0; j < group_value; j++) {
+                // 각 그룹의 시작 위치(대각선에 있는 원소)
                 int x = j;
                 int y = j;
 
