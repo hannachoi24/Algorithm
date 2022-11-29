@@ -57,7 +57,6 @@ public class 마법사상어와파이어볼 {
     // 1. 모든 파이어볼이 자신의 방향 di로 속력 si칸 만큼 이동한다.
     public static void move() {
         for (FireBall f : list) {
-            // 모든 파이어볼이 자신의 방향 di로 속력 si칸 만큼 이동한다.
             f.r = (N + f.r + dx[f.d] * (f.s % N)) % N;
             f.c = (N + f.c + dy[f.d] * (f.s % N)) % N;
 
@@ -91,7 +90,7 @@ public class 마법사상어와파이어볼 {
                         list.remove(f);
                     }
 
-                    // 3. 나누어진 파이어볼의 질량, 속력, 방향 계산
+                    // 2-3. 나누어진 파이어볼의 질량, 속력, 방향 계산
                     int nm = m_sum / 5; // 질량 = (합쳐진 파이어볼 질량의 합)/5
                     int ns = s_sum / cnt_sum; // 속력 = (합쳐진 파이어볼 속력의 합)/(합쳐진 파이어볼의 개수)
 
