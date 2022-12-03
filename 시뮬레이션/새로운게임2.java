@@ -98,7 +98,7 @@ public class 새로운게임2 {
                         if (map[nx][ny] == 1) {
                             for (int p = up_horse.size() - 1; p >= 0; p--) {
                                 list[nx][ny].add(up_horse.get(p));
-                                Node hh = horse.get(up_horse.get(p));
+                                Node hh = horse.get(up_horse.get(p)); // 위에 있는 말의 번호에 해당하는 값(위치, 방향)들을 horse에서 가져온다.
                                 horse.put(up_horse.get(p), new Node(nx, ny, hh.dir));
                             }
                         } else {
@@ -109,13 +109,13 @@ public class 새로운게임2 {
                             }
                         }
                     }
-                } else if (map[nx][ny] == 1) {
+                } else if (map[nx][ny] == 1) { // 이동한 칸이 빨간색이라면
                     for (int p = up_horse.size() - 1; p >= 0; p--) {
                         list[nx][ny].add(up_horse.get(p));
                         Node hh = horse.get(up_horse.get(p));
                         horse.put(up_horse.get(p), new Node(nx, ny, hh.dir));
                     }
-                } else if (map[nx][ny] == 0) {
+                } else if (map[nx][ny] == 0) { // 이동한 칸이 흰색이라면
                     for (Integer h : up_horse) {
                         list[nx][ny].add(h);
                         Node hh = horse.get(h);
@@ -123,11 +123,12 @@ public class 새로운게임2 {
                     }
                 }
 
+                // 이동하면서 말을 쌓다가 말이 4개이상이 쌓이면 턴 종료
                 if (list[nx][ny].size() >= 4) {
                     break outer;
                 }
 
-                // 말 빼기
+                // 이동시킨 후 원래 말이 있던 x, y 위치에서의 말 ~ 그 위에 쌓은 말의 정보를 제거
                 for (int p = list[x][y].size() - 1; p >= start_idx; p--) {
                     list[x][y].remove(p);
                 }
