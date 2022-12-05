@@ -20,7 +20,7 @@ class Tree implements Comparable<Tree> {
 }
 
 public class 나무재테크 {
-    static int N, M, K;
+    static int N, M, K; // N: 맵의 크기, M: 나무의 개수, K: K년이 지난 후
     static int A[][]; // 추가되는 양분의 양
     static int eat[][]; // 해당 칸의 양분 양
     static int dx[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
@@ -50,9 +50,9 @@ public class 나무재테크 {
         // 나무 리스트에 추가
         for (int i = 1; i <= M; i++) {
             st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            int treeAge = Integer.parseInt(st.nextToken());
+            int x = Integer.parseInt(st.nextToken()); // 나무의 위치
+            int y = Integer.parseInt(st.nextToken()); // 나무의 위치
+            int treeAge = Integer.parseInt(st.nextToken()); // 나무의 나이
             list.add(new Tree(x, y, treeAge));
         }
 
@@ -97,12 +97,12 @@ public class 나무재테크 {
                     int ny = t.y + dy[i];
 
                     if (nx >= 1 && nx <= N && ny >= 1 && ny <= N) {
-                        list.addFirst(new Tree(nx, ny, 1));
+                        list.addFirst(new Tree(nx, ny, 1)); // 나이가 어린 나무부터 양분 먹는것을 처리해주기 위해 Deque에 addFirst
                     }
                 }
             }
 
-            // 겨울일 때
+            // 겨울 (땅을 돌아다니면서 땅에 양분을 추가)
             for (int i = 1; i <= N; i++) {
                 for (int j = 1; j <= N; j++) {
                     eat[i][j] += A[i][j];
