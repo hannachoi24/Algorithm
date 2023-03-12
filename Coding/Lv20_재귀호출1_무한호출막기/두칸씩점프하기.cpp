@@ -17,6 +17,7 @@ int main()
 {
     int n;
     cin >> n;
+
     run(n, 0);
 
     return 0;
