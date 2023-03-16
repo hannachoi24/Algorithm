@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// 중복 순열
+// 순열
 // 6개의 알파벳중 중복 없이 4개의 알페벳을 만들어라
 
 char word[7] = "ERATKZ";
