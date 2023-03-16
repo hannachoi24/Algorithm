@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// 중복순열
+// 순열
 // 방문처리하면서 같은 숫자 나오지 않게 출력
 
 char path[10];
