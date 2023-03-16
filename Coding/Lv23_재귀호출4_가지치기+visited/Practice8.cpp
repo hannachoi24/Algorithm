@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// 중복 순열
+// 순열
 // 주사위 n개를 굴려 같은 눈금이 나오지 않도록하고 n개의 눈금합이 10보다 같거나 크면 안되는 모든 눈금 출력
 
 char path[10];
