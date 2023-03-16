@@ -4,7 +4,7 @@ using namespace std;
 string word = "EWABC";
 char path[10];
 bool visit[5];
-char a;
+char a; // 제외 시킬 문자
 
 void run(int lev)
 {
