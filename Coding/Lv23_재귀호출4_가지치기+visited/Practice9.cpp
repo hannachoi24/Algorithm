@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// 순열
 // 다섯개의 후보 중에 1~3등을 뽑으려고 한다. 단 T는 1등 불가하도록 구현
 
 char word[6] = "QWERT";
