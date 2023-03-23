@@ -12,6 +12,7 @@ int main()
     {
         cin >> vec[i];
     }
+
     /* 방법2
     for (int i = 0; i < n; i++)
     {
