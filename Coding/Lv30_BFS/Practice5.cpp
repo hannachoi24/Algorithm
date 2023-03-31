@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+
 using namespace std;
 
 vector<vector<int>> alist(7);
