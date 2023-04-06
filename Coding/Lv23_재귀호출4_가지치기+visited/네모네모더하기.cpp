@@ -45,6 +45,7 @@ int main()
     }
     map[3][3] = sum;
 
+    // 출력
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
