@@ -11,6 +11,7 @@ int getSum(int idx)
     {
         sum += arr[i];
     }
+
     return sum;
 }
 
