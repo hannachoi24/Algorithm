@@ -43,10 +43,11 @@ int simulate()
             {
                 arr[nx][ny] = 2;
                 q.push({nx, ny});
+                // 꼬리가 위치 한 곳
                 int px = q.front().first;
                 int py = q.front().second;
                 q.pop();
-                arr[px][py] = 0;
+                arr[px][py] = 0; // 꼬리 제거
             }
             // 사과가 있다면 이동 후에 꼬리 그대로 두기
             if (arr[nx][ny] == 1)
