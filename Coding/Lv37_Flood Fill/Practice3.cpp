@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// 비어 있는 곳에 물감 퍼뜨리고 횟수 출력
+// 비어 있는 곳에 물감을 퍼뜨린 횟수 출력
 
 struct Node
 {
