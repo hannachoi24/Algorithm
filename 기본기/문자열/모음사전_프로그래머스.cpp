@@ -36,6 +36,17 @@ int solution(string word)
     return answer;
 }
 
+// test
+int main()
+{
+    string input;
+    cin >> input;
+    int result = solution(input);
+    cout << "Result: " << result << endl;
+
+    return 0;
+}
+
 /*
 1. ""을 시작으로 dfs 수행
 
