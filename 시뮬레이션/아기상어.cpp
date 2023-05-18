@@ -109,6 +109,7 @@ int main()
 
     int answer = 0;
 
+    // 거리 누적해줘야되기 때문에 반복문 사용
     while (1)
     {
         int dist = run();
