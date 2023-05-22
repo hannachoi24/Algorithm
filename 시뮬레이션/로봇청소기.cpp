@@ -22,7 +22,8 @@ void dfs(int r, int c, int d, int sum)
     for (int i = 0; i < 4; i++)
     { // 왼쪽부터 반시계방향
 
-        int nd = (d + 3 - i) % 4;
+        int nd = (d + 3 - i) % 4; // d는 현재 방향, i는 회전할 횟수이며 (d+3-i)는 현재 방향에서 반시계방향으로 i번 회전한 방향을 나타냄.
+        // 결과 값이 0부터 3까지 범위에 속하게 된다. ex) d = 1, i = 2라면, (1 + 3 - 2) % 4 = 2
         int nr = r + dr[nd];
         int nc = c + dc[nd];
 
@@ -39,7 +40,8 @@ void dfs(int r, int c, int d, int sum)
         }
     }
 
-    int backIdx = d + 2 < 4 ? d + 2 : d - 2;
+    int backIdx = d + 2 < 4 ? d + 2 : d - 2; // d+2가 4보다 작다면, 현재 방향에서 180도 반대 방향으로 회전하면 이전 방향을 가리키게 된다. 따라서 d+2의 값을 저장.
+                                             // d+2가 4보다 크거나 같다면, 현재 방향에서 180도 회전하면 이전 방향을 넘어 반대편 방향을 가리키게 된다. 따라서 d-2의 값을 저장.
     int backr = r + dr[backIdx];
     int backc = c + dc[backIdx];
     if (0 <= backr && backr <= N && 0 <= backc && backc <= M)
